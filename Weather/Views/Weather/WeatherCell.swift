@@ -9,23 +9,21 @@ import UIKit
 
 class WeatherCell: UITableViewCell {
     
-    @IBOutlet var dayLabel: UILabel!
-    @IBOutlet var highTempLabel: UILabel!
-    @IBOutlet var LowTempLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var dayLabel      : UILabel!
+    @IBOutlet var highTempLabel : UILabel!
+    @IBOutlet var LowTempLabel  : UILabel!
+    @IBOutlet var iconImageView : UIImageView!
     
-    var weatherToDisplay = [Daily]()
+    static let identifier = "WeatherCell"
+    var weatherToDisplay  = [Daily]()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
-    
-    static let identifier = "WeatherCell"
     
     static func nib() -> UINib {
         return UINib(nibName: "WeatherCell", bundle: nil)
@@ -33,7 +31,9 @@ class WeatherCell: UITableViewCell {
     
     func configure(with model: Daily) {
         self.highTempLabel.text = "\(Int((model.temp?.max)!))°"
-        self.LowTempLabel.text = "\(Int((model.temp?.min)!))°"
+        self.LowTempLabel.text  = "\(Int((model.temp?.min)!))°"
+        highTempLabel.font      = UIFont(name: "Helvetica-Bold", size: 20)
+        LowTempLabel.font       = UIFont(name: "Helvetica-Bold", size: 20)
 
         switch model.weather![0].icon {
         case "01d":
@@ -58,9 +58,8 @@ class WeatherCell: UITableViewCell {
             self.iconImageView.image = UIImage(systemName: "cloud.drizzle")
             
         }
-        
-        // TODO: Format current date
         self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt!)))
+        dayLabel.font      = UIFont(name: "Helvetica-Bold", size: 20)
     }
     
     func getDayForDate(_ date: Date?) -> String {
@@ -70,5 +69,4 @@ class WeatherCell: UITableViewCell {
         formatter.dateFormat = "EEEE"
         return formatter.string(from: inputDate)
     }
-    
 }

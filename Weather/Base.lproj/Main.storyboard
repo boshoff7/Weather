@@ -16,18 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="eTH-po-3VF">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eLs-MH-DA5">
                                 <rect key="frame" x="0.0" y="47" width="390" height="763"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eTH-po-3VF" secondAttribute="bottom" id="5kl-cZ-zzq"/>
                             <constraint firstItem="eLs-MH-DA5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7WP-hU-b9R"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eLs-MH-DA5" secondAttribute="bottom" id="AvY-F4-jcs"/>
+                            <constraint firstItem="eTH-po-3VF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bi6-Yl-umb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eLs-MH-DA5" secondAttribute="trailing" id="NIf-Ap-odN"/>
                             <constraint firstItem="eLs-MH-DA5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qA4-Qf-zSX"/>
+                            <constraint firstItem="eTH-po-3VF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sM5-e3-iJ8"/>
+                            <constraint firstAttribute="trailing" secondItem="eTH-po-3VF" secondAttribute="trailing" id="vtM-PA-wRA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -40,6 +47,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BG" width="1000" height="1500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

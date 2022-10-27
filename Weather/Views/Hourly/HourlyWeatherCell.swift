@@ -21,11 +21,10 @@ class HourlyWeatherCell: UICollectionViewCell {
     
     func configure(with model: Hourly) {
         self.tempLabel.text = "\(Int(model.temp ?? 0))°"
-//        self.timeLabel.text = "\(model.dt ?? 0)"
-//        self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt!)))
         self.timeLabel.text = getDayForDate(Date(timeIntervalSince1970: Double(model.dt ?? 0)))
         
         self.iconImageView.contentMode = .scaleAspectFit
+        self.iconImageView.tintColor   = .label
         switch model.weather![0].icon {
         case "01d":
             self.iconImageView.image = UIImage(systemName: "sun.max.fill")
@@ -47,7 +46,6 @@ class HourlyWeatherCell: UICollectionViewCell {
             self.iconImageView.image = UIImage(systemName: "cloud.fog")
         default:
             self.iconImageView.image = UIImage(systemName: "cloud.drizzle")
-            
         }
     }
     
@@ -63,5 +61,4 @@ class HourlyWeatherCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
 }

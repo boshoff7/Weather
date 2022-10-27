@@ -12,21 +12,18 @@ class HourlyCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDat
     @IBOutlet var collectionView: UICollectionView!
     
     var models = [Hourly]()
+    static let identifier = "HourlyCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView.delegate = self
+        collectionView.delegate   = self
         collectionView.dataSource = self
         collectionView.register(HourlyWeatherCell.nib(), forCellWithReuseIdentifier: HourlyWeatherCell.identifier)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
-    static let identifier = "HourlyCell"
     
     static func nib() -> UINib {
         return UINib(nibName: "HourlyCell", bundle: nil)
@@ -50,6 +47,4 @@ class HourlyCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDat
         cell.configure(with: models[indexPath.row])
         return cell
     }
-    
-    
 }
